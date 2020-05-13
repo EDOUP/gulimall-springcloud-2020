@@ -8,12 +8,11 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
-/gulimail.iml
+*.iml
 .idea
 **/.mvn
 **/mvnw.cmd
 **/mvnw
 **/target
 **/.gitignore
-
 
