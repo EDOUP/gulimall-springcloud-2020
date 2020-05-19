@@ -1,13 +1,15 @@
 /**
  * Copyright (c) 2016-2019 人人开源 All rights reserved.
- *
+ * <p>
  * https://www.renren.io
- *
+ * <p>
  * 版权所有，侵权必究！
  */
 
 package io.renren.modules.job.config;
 
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
@@ -22,6 +24,9 @@ import java.util.Properties;
  */
 @Configuration
 public class ScheduleConfig {
+
+    @Value("${spring.datasource.druid.driver-class-name}")
+    private String value;
 
     @Bean
     public SchedulerFactoryBean schedulerFactoryBean(DataSource dataSource) {
@@ -48,7 +53,9 @@ public class ScheduleConfig {
         prop.put("org.quartz.jobStore.selectWithLockSQL", "SELECT * FROM {0}LOCKS UPDLOCK WHERE LOCK_NAME = ?");
 
         //PostgreSQL数据库，需要打开此注释
-        //prop.put("org.quartz.jobStore.driverDelegateClass", "org.quartz.impl.jdbcjobstore.PostgreSQLDelegate");
+        if ("org.postgresql.Driver".equals(value)) {
+            prop.put("org.quartz.jobStore.driverDelegateClass", "org.quartz.impl.jdbcjobstore.PostgreSQLDelegate");
+        }
 
         factory.setQuartzProperties(prop);
 

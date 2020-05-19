@@ -1,0 +1,22 @@
+server:
+  port: 9200
+  servlet:
+    context-path: /member
+
+spring:
+  # \u73AF\u5883 dev|test|prod
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        #注册地址
+        server-addr: docker.huaxia.city:8848
+      #应用名称
+  application:
+    name:  gulimail-member
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto

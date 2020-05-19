@@ -8,7 +8,12 @@
 
 package io.renren.config;
 
-import io.renren.dao.*;
+import io.renren.dao.GeneratorDao;
+import io.renren.dao.MongoDBGeneratorDao;
+import io.renren.dao.MySQLGeneratorDao;
+import io.renren.dao.OracleGeneratorDao;
+import io.renren.dao.PostgreSQLGeneratorDao;
+import io.renren.dao.SQLServerGeneratorDao;
 import io.renren.utils.RRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
