@@ -1,0 +1,45 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        #服务地址
+        server-addr: https://nacos.huaxia.city
+        #文件猴嘴，默认 properties
+        file-extension: yml
+        #命名空间id  nacos中查看。可以根据需要按环境或按微服务配置
+        namespace: d83103ef-3d9b-420b-93cf-18c41e95ce7e
+        #配置集id :nacos  中的data id，类似于，properties文件的文件名
+
+    gateway:
+      routes:
+        #路由策略
+#        - id: test-route
+#          uri: https://www.baidu.com
+#          predicates:
+#            - Query=url, baidu
+#        - id: qq-route
+#          uri: https://www.qq.com
+#          predicates:
+#            - Query=url, qq
+        - id: product_route
+            #lb负载均衡
+          uri: lb://gulimail-product
+            #断言
+          predicates:
+            - Path=/ui/product/**
+              #路径重写
+          filters:
+            - RewritePath=/ui/(?<segment>/?.*), /$\{segment}
+        - id: admin_route
+          uri: lb://renren-fast
+          predicates:
+            - Path=/ui/**
+          filters:
+            - RewritePath=/ui/(?<segment>/?.*), /renren-fast/$\{segment}
+
+  application:
+    name: gulimall-gateway
+server:
+  port: 8080
+
+

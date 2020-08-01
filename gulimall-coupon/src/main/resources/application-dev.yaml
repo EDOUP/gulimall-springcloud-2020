@@ -8,3 +8,8 @@ spring:
     url: jdbc:mysql://www.huaxia.city:3307/gulimall_sms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: sql12345
+
+coupon:
+  user:
+     name: edoup
+     age: 10

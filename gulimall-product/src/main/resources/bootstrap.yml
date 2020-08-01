@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        #服务地址
+        server-addr: https://nacos.huaxia.city
+        #文件猴嘴，默认 properties
+        file-extension: yml
+        #命名空间id  nacos中查看。可以根据需要按环境或按微服务配置
+        namespace: 3131b500-1770-4859-9b94-f9c14cadf97a
+        #配置集id :nacos  中的data id，类似于，properties文件的文件名
+  application:
+    name: gulimail-product
+

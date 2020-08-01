@@ -7,9 +7,19 @@ spring:
   # \u73AF\u5883 dev|test|prod
   profiles:
     active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: https://nacos.huaxia.city
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
     db-config:
       id-type: auto
+      logic-delete-value: -1 # 逻辑已删除值(默认为 -1)
+      logic-not-delete-value: 0  # 逻辑未删除值(默认为 0)
+
+logging:
+  level:
+    com.edoupgulimail: debug

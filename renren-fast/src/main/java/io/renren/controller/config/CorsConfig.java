@@ -8,11 +8,11 @@
 
 package io.renren.controller.config;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
+//gateway网关已统一配置跨域
+//@Configuration
 public class CorsConfig implements WebMvcConfigurer {
 
     @Override

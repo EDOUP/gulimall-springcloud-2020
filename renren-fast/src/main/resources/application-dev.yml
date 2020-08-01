@@ -2,12 +2,12 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-#      driver-class-name:    org.postgresql.Driver
-#      url: jdbc:postgresql://www.huaxia.city:5455/gulimall_admin
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://www.huaxia.city:3307/gulimall_admin?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      driver-class-name:    org.postgresql.Driver
+      url: jdbc:postgresql://db.huaxia.city:5455/gulimall_admin
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://sql.huaxia.city:3307/gulimall_admin?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
       username: root
-      password: sql12345
+      password: sql_12345
       initial-size: 10
       max-active: 100
       min-idle: 10

@@ -1,0 +1,19 @@
+server:
+  port: 7000
+
+eureka:
+  instance:
+    #euraker 服务端实例
+    hostname: eureka7000.com
+  client:
+    #false表示不注册自己
+    register-with-eureka: false
+    #false 表示自己就是注册中心，并不需要去检索服务
+    fetch-registry: false
+    service-url:
+      #服务地址
+      defaultZone: http://eureka7001.com:7001/eureka
+  server:
+    #eviction-interval-timer-in-ms: 2000
+    #关闭自我保护
+    #enable-self-preservation: false

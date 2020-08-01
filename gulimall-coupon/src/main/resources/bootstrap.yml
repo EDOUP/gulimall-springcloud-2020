@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        #服务地址
+        server-addr: https://nacos.huaxia.city
+        #文件猴嘴，默认 properties
+        file-extension: yml
+        #命名空间id  nacos中查看。可以根据需要按环境或按微服务配置
+        namespace: 6088cb94-cd90-4b57-a342-7081414c0dac
+        #配置集id :nacos  中的data id，类似于，properties文件的文件名
+
+        #配置分组，默认所有配置集都属于 DEFAULT_GROUP
+        group: DOUBLE_11
+        #扩展  数组 使用多个nacos配置文件
+#        extension-configs:
+#          data-id：
+#          group:
+#          refresh:
+
+
+

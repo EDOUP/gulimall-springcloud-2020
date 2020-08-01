@@ -4,10 +4,10 @@ server:
     uri-encoding: UTF-8
     max-threads: 1000
     min-spare-threads: 30
-  port: 8080
   connection-timeout: 5000ms
   servlet:
     context-path: /renren-fast
+  port: 8080
 
 spring:
   # 环境 dev|test|prod
@@ -37,9 +37,12 @@ spring:
         min-idle: 5       # 连接池中的最小空闲连接
   mvc:
     throw-exception-if-no-handler-found: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: https://nacos.huaxia.city
 #  resources:
 #    add-mappings: false
-
 
 #mybatis
 mybatis-plus:

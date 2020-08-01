@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,6 +28,14 @@ import java.util.Map;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+
+    @RequestMapping("/list/tree")
+    public R listTree(){
+        List<CategoryEntity> entityList =categoryService.listWithTree();
+
+        return R.ok().put("data", entityList);
+    }
+
 
     /**
      * 列表
@@ -48,7 +57,7 @@ public class CategoryController {
     public R info(@PathVariable("catId") Long catId){
 		CategoryEntity category = categoryService.getById(catId);
 
-        return R.ok().put("category", category);
+        return R.ok().put("data", category);
     }
 
     /**
@@ -59,7 +68,7 @@ public class CategoryController {
     public R save(@RequestBody CategoryEntity category){
 		categoryService.save(category);
 
-        return R.ok();
+        return  R.ok();
     }
 
     /**
@@ -79,8 +88,9 @@ public class CategoryController {
     @RequestMapping("/delete")
     //@RequiresPermissions("product:category:delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
-
+        //1.检查当前菜单是否被别的地方引用
+	//	categoryService.removeByIds(Arrays.asList(catIds));
+        categoryService.removeMenusByIds(Arrays.asList(catIds));
         return R.ok();
     }
 
