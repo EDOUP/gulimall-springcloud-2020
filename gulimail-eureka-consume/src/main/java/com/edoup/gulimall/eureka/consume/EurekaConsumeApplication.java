@@ -12,6 +12,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
+//@RibbonClient(name = "GULIMAIL-EUREKA-PAYMENT",configuration = MyRibbonRule.class)
 public class EurekaConsumeApplication {
 
     public static void main(String[] args) {
